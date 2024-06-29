@@ -76,7 +76,7 @@ const OurPurpose = () => {
         Our Purpose
       </h1>
       <p ref={paragraphRef} className="font-light text-[16px] cursor-text">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br /> industry's standard dummy text ever since the 1500s
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br /> industrys standard dummy text ever since the 1500s
       </p>
       <button ref={buttonRef} className="gradientbg text-white text-[22px] font-bold px-10 py-3 rounded-full my-10 cursor-pointer">
         Fair Market Value
