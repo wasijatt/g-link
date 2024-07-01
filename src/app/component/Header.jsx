@@ -15,7 +15,7 @@ const Header = () => {
     return(
 <div className="flex justify-between items-center px-[8%] py-3">    
     <div className="flex items-center">
-        <Image src={"/Link Logo.jpg"} width={100} height={100}/>
+        <Image alt="main logo" src={"/Link Logo.jpg"} width={100} height={100}/>
         <Link className="ml-7 font-medium text-xl" href={""}>Contact Us</Link> 
     </div>
     <motion.div
@@ -25,6 +25,7 @@ const Header = () => {
       transition={{ type: 'spring', stiffness: 300 }}
     >
       <Image
+      alt="language Selector"
         className="w-10 h-10 rounded-full"
         src="/Language.jpg"
         width={40}
@@ -39,6 +40,7 @@ const Header = () => {
         >
           <div className="w-10 h-10 right-2 cursor-pointer" onClick={handleSelect}>
             <Image
+            alt="language Selector"
               className="w-10 h-10 rounded-full"
               src="/Language.jpg"
               width={40}
@@ -47,6 +49,8 @@ const Header = () => {
           </div>
           <div className="w-10 h-10  right-2 cursor-pointer" onClick={handleSelect}>
             <Image
+            alt="language Selector"
+
               className="w-10 h-10 rounded-full"
               src="/Language.jpg"
               width={40}

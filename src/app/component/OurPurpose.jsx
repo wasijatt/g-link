@@ -1,6 +1,7 @@
 "use client"
-
-import { useState, useEffect, useRef } from 'react';
+import {useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 
 const OurPurpose = () => {
@@ -30,10 +31,10 @@ const OurPurpose = () => {
             setCursorSize('70px');
             setCursorColor('#ffffff');
             break;
-            case 'Link':
-              setCursorSize('70px');
-              setCursorColor('#01236b92');
-              break;
+          case 'link':
+            setCursorSize('70px');
+            setCursorColor('#01236b92');
+            break;
           case 'p':
             setCursorSize('40px');
             setCursorColor('#01236b92');
@@ -53,6 +54,52 @@ const OurPurpose = () => {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = sectionRef.current;
+    const heading = headingRef.current;
+    const paragraph = paragraphRef.current;
+    const button = buttonRef.current;
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top center",
+      onEnter: () => {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: -50 },
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        );
+
+        gsap.fromTo(
+          paragraph,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.5 }
+        );
+
+        gsap.fromTo(
+          button,
+          { opacity: 0, scale: 0.8 },
+          { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.7)", delay: 1 }
+        );
+
+        divRefs.current.forEach((div, index) => {
+          if (div) {
+            gsap.fromTo(
+              div,
+              { opacity: 0, y: 50 },
+              { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 1.5 + index * 0.3 }
+            );
+          }
+        });
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
 
@@ -84,19 +131,26 @@ const OurPurpose = () => {
       <p className="cursor-default">Automate your compliance with AI-powered CV tiering and fair market valuation.</p>
       <div className="flex mt-14">
         <div ref={(el) => (divRefs.current[0] = el)} className="w-[1/3] mx-11 cursor-pointer">
-          <Image className="w-[250px]" src="/ai-powered-content-creation-isometric-concept-with-chatbot-laptop-screen-3d-vector-illustration 1.jpg" width={400} height={400} alt="AI powered content creation" />
+          <Image 
+        
+           className="w-[250px]" src="/ai-powered-content-creation-isometric-concept-with-chatbot-laptop-screen-3d-vector-illustration 1.jpg" width={400} height={400} alt="AI powered content creation" />
           <p className="mt-6 text-lg font-semibold">
             AI extracts and tiers CV <br /> information
           </p>
         </div>
         <div ref={(el) => (divRefs.current[1] = el)} className="w-[1/3] mx-11 mt-11 cursor-pointer">
-          <Image className="w-[250px]" src="/accounting-concept-illustration 1.jpg" width={500} height={500} alt="Accounting concept" />
+          <Image
+         
+          className="w-[250px]" src="/accounting-concept-illustration 1.jpg" width={500} height={500} alt="Accounting concept" />
           <p className="text-lg font-semibold text-center">
             Adapts to your tiering <br /> methodology
           </p>
         </div>
         <div ref={(el) => (divRefs.current[2] = el)} className="w-[1/3] mx-11 cursor-pointer">
-          <Image className="w-[250px]" src="/business-enterprise-strategy-market-analysis-niche-selection-conquering-marketplace-studying-market-segmentation-planning-company-development 1.jpg" width={400} height={400} alt="Business enterprise strategy" />
+          <Image 
+       
+          
+          className="w-[250px]" src="/business-enterprise-strategy-market-analysis-niche-selection-conquering-marketplace-studying-market-segmentation-planning-company-development 1.jpg" width={400} height={400} alt="Business enterprise strategy" />
           <p className="text-lg font-semibold">
             Provides fair market <br /> valuations and justifications
           </p>
