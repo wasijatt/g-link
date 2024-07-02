@@ -8,3 +8,28 @@
 .lineargradient{
   background: linear-gradient(to right ,#87AEEE, #01236B);
 }
+/* styles/globals.css */
+
+/* styles/globals.css */
+/* styles/globals.css */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevent default scrolling */
+}
+
+html, body, #__next {
+  height: 100%;
+  overflow: hidden; /* prevent default scrolling */
+}
+
+[data-scroll-container] {
+  overflow: hidden;
+}
+
+.section {
+  height: 80vh; /* Adjust the height of your sections as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

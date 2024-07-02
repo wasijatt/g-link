@@ -26,7 +26,7 @@ const Header = () => {
     >
       <Image
       alt="language Selector"
-        className="w-10 h-10 rounded-full"
+        className="w-10 h-10 rounded-full ml-2"
         src="/Language.jpg"
         width={40}
         height={40}
@@ -38,7 +38,7 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <div className="w-10 h-10 right-2 cursor-pointer" onClick={handleSelect}>
+          <div className="w-10 h-10 right-2 cursor-pointer " onClick={handleSelect}>
             <Image
             alt="language Selector"
               className="w-10 h-10 rounded-full"
